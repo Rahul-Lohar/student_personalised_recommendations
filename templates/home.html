@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Recommendations</title>
+    <link rel="stylesheet" href="/static/static.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Personalized Recommendations</h1>
+        
+        <h2>Student Category: {{ student_category }}</h2>
+
+        <h3>Your Insights:</h3>
+        <ul>
+            {% for topic, score in insights.items() %}
+                <li><strong>{{ topic }}:</strong> {{ score }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Recommendations:</h3>
+        <p><strong>Weak Topics:</strong> {{ recommendations.weak_topics | join(", ") }}</p>
+        <p><strong>Advice:</strong> {{ recommendations.advice }}</p>
+    </div>
+</body>
+</html>
